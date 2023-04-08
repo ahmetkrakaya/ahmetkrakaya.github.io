@@ -32,7 +32,7 @@ app.get('/user', async (req, res) => {
     //WHERE DURUM == '2' && KULLANICIADI == @userName && SIFRE == @password';
     const query = 'SELECT * FROM KULLANICI; 
     const result = await sql.query(query);
-                                   //[userName, password]);
+    //[userName, password]);
 
     // Sonuçlar JSON formatına dönüştürülüyor
     const data = JSON.stringify(result.recordset);
