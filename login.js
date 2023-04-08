@@ -21,16 +21,18 @@ app.get('/user', async (req, res) => {
   try {
 
     //Parametlerin alınması
-    const userName = req.query.userName;
-    const password = req.query.password;
+    //const userName = req.query.userName;
+    //const password = req.query.password;
 
 
     // Veritabanına bağlanılıyor
     await sql.connect(config);
 
     //Sorgu ve parametlerin hazırlanması
-    const query = 'SELECT * FROM KULLANICI WHERE DURUM == '2' && KULLANICIADI == @userName && SIFRE == @password';
-    const result = await sql.query(query, [userName, password]);
+    //WHERE DURUM == '2' && KULLANICIADI == @userName && SIFRE == @password';
+    const query = 'SELECT * FROM KULLANICI; 
+    const result = await sql.query(query);
+                                   //[userName, password]);
 
     // Sonuçlar JSON formatına dönüştürülüyor
     const data = JSON.stringify(result.recordset);
