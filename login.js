@@ -30,7 +30,7 @@ app.get('/user', async (req, res) => {
 
     //Sorgu ve parametlerin hazırlanması
     //WHERE DURUM == '2' && KULLANICIADI == @userName && SIFRE == @password';
-    const query = 'SELECT * FROM KULLANICI; 
+    const query = 'SELECT * FROM KULLANICI'; 
     const result = await sql.query(query);
     //[userName, password]);
 
