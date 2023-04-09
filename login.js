@@ -17,20 +17,18 @@ const config = {
 };
 
 // Verileri getirmek için bir endpoint oluşturuluyor
-app.get('/user', async (req, res) => {
+app.get('/login', async (req, res) => {
   try {
-
-    //Parametlerin alınması
+    // Parametrelerin alınması
     const userName = req.query.userName;
     const password = req.query.password;
-
 
     // Veritabanına bağlanılıyor
     await sql.connect(config);
 
-    //Sorgu ve parametlerin hazırlanması
-    const query = 'SELECT * FROM KULLANICI WHERE DURUM == '2' && KULLANICIADI == '@userName' && SIFRE == '@password''; 
-    const result = await sql.query(query,[userName, password]);
+    // Sorgu ve parametrelerin hazırlanması
+    const query = `SELECT * FROM KULLANICI WHERE KULLANICIADI = '${userName}' AND SIFRE = '${password}'`;
+    const result = await sql.query(query);
 
     // Sonuçlar JSON formatına dönüştürülüyor
     const data = JSON.stringify(result.recordset);
